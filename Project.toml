@@ -1,0 +1,10 @@
+name = "EpidemicRL"
+uuid = "2feff98a-4562-4064-a6c7-d7c5d6c00fc0"
+authors = ["Travis Dick <travis.barry.dick@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
