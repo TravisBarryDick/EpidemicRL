@@ -1,12 +1,6 @@
 import Zygote.dropgrad
 import LinearAlgebra: norm, dot
 
-"Feature extractor that always returns [1.0]"
-struct ConstantFeatureExtractor end
-num_features(Φ::ConstantFeatureExtractor) = 1
-get_features(Φ::ConstantFeatureExtractor, s) = [1.0]
-
-
 """ 
 Represents a policy over real-valued actions where the action
 distribution is Gaussian with mean and standard deviation depending on
@@ -15,9 +9,9 @@ the current state.
 The action distribution for state `s` is computed as follows:
 
 1. The FeatureExtractor `Φ` is used to compute a feature vector `φ`
-for state `s`.
+   for state `s`.
 2. The mean is computed as `μ = dot(θ_μ, φ)`, where θ_μ are the mean
-parameters.
+   parameters.
 3. The std deviation is computed as `σ = slf(σ_min, σ_max, dot(θ_σ,
    φ))` where `slf` is a shifted logistic function that softly clamps
    its third argument to be in the range [σ_min, σ_max] and θ_σ are

@@ -40,10 +40,12 @@ function step(env::SIRQEnvironment, num_quarantines)
     if next_max_I > env.state.max_I
         reward = -(next_max_I - env.state.max_I)
     end
-
+    
     env.state = next_state
 
     return reward, next_state
 end
 
 terminal(env::SIRQEnvironment) = env.state.I < 1e-10
+
+fraction_to_quarantines(state, action) = clamp(action, 0, 1) * state.I
